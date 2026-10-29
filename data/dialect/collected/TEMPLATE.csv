@@ -1,0 +1,3 @@
+lang,dialect,annot_utt,intent,standard_annot_utt,region,annotator
+ta,kongu,[date : நாளைக்கு] [place_name : கோவைல] மழை வருமுங்களா,weather_query,[date : நாளை] [place_name : கோவையில்] மழை பெய்யுமா,Coimbatore,A1
+hi,bhojpuri,[date : काल्ह] [place_name : बलिया] में [weather_descriptor : बरखा] होई का,weather_query,[date : कल] [place_name : बलिया] में [weather_descriptor : बारिश] होगी क्या,Ballia,A2

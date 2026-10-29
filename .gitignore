@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+logs/
+reports_prepare.log
+
+# Fine-tuned MuRIL encoders are about 950 MB each. GitHub rejects files over 100 MB.
+# heads.pt, the tokenizer, and dialect models are small enough to keep.
+*.safetensors

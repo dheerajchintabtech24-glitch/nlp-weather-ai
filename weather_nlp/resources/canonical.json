@@ -1,0 +1,54 @@
+{
+  "note": "Surface form -> language-independent value. Tamil forms are matched as token prefixes (agglutination); Hindi and English forms are matched exactly after folding. Dialect forms are included so the state stays language- and dialect-independent.",
+  "date": [
+    {"value": {"current": true}, "en": ["now", "currently", "current", "right now", "at the moment"], "hi": ["अभी", "अब", "वर्तमान", "इस समय", "फिलहाल", "अबहीं", "इब"], "ta": ["இப்போது", "தற்போது", "தற்போதைய", "இப்போ", "இப்ப", "இந்த நேரத்தில்"]},
+    {"value": {"offset": 2}, "en": ["day after tomorrow"], "hi": ["परसों", "परसो"], "ta": ["நாளை மறுநாள்", "நாளைக்கு மறுநாள்", "நாளன்னைக்கு"]},
+    {"value": {"offset": 0}, "en": ["today", "today's", "tonight"], "hi": ["आज"], "ta": ["இன்று", "இன்றைய", "இன்றைக்கு", "இன்னைக்கு", "இன்னிக்கு", "இன்றிரவு"]},
+    {"value": {"offset": 1}, "en": ["tomorrow", "tomorrow's"], "hi": ["कल", "काल्ह", "काल"], "ta": ["நாளை", "நாளைய", "நாளைக்கு"]},
+    {"value": {"offset": -1}, "en": ["yesterday"], "hi": [], "ta": ["நேற்று", "நேத்து"]},
+    {"value": {"range": [7, 13]}, "en": ["next week"], "hi": ["अगले सप्ताह", "अगले हफ्ते", "अगला सप्ताह", "अगला हफ्ता"], "ta": ["அடுத்த வாரம்", "அடுத்த வார"]},
+    {"value": {"weekend": true}, "en": ["weekend", "this weekend"], "hi": ["सप्ताहांत", "वीकेंड"], "ta": ["வார இறுதி"]},
+    {"value": {"range": [0, 9]}, "en": ["ten day", "10 day", "ten days"], "hi": ["दस दिन", "दस दिनों"], "ta": ["பத்து நாள்"]},
+    {"value": {"range": [0, 6]}, "en": ["this week", "this week's", "week", "weeks", "week's", "weekly", "next seven days", "seven day", "next few days"], "hi": ["इस सप्ताह", "इस हफ्ते", "सप्ताह", "हफ्ते", "हफ्ता", "साप्ताहिक", "अगले सात दिन", "अगले सात दिनों", "सात दिन", "अगले कुछ दिनों"], "ta": ["இந்த வாரம்", "இந்த வார", "வாரம்", "வாரத்", "வாரங்கள்", "ஏழு நாள்", "வாராந்திர"]},
+    {"value": {"weekday": 0}, "en": ["monday"], "hi": ["सोमवार"], "ta": ["திங்க"]},
+    {"value": {"weekday": 1}, "en": ["tuesday"], "hi": ["मंगलवार"], "ta": ["செவ்வாய்"]},
+    {"value": {"weekday": 2}, "en": ["wednesday"], "hi": ["बुधवार"], "ta": ["புதன்"]},
+    {"value": {"weekday": 3}, "en": ["thursday"], "hi": ["गुरुवार", "बृहस्पतिवार"], "ta": ["வியாழ"]},
+    {"value": {"weekday": 4}, "en": ["friday"], "hi": ["शुक्रवार"], "ta": ["வெள்ளிக்கிழமை", "வெள்ளி"]},
+    {"value": {"weekday": 5}, "en": ["saturday"], "hi": ["शनिवार"], "ta": ["சனி"]},
+    {"value": {"weekday": 6}, "en": ["sunday"], "hi": ["रविवार", "इतवार"], "ta": ["ஞாயிறு", "ஞாயிற்று"]}
+  ],
+  "past_markers": {
+    "hi": ["था", "थी", "थे", "हुई", "हुआ", "गया", "गई", "रहल", "रहे थे"],
+    "en": ["was", "were", "did"],
+    "ta": []
+  },
+  "timeofday": [
+    {"value": "night", "en": ["tonight", "night", "overnight"], "hi": ["रात", "रात्रि", "रात्रि"], "ta": ["இரவு", "இன்றிரவு", "ராத்திரி", "ராத்திரிக்கு"]},
+    {"value": "morning", "en": ["morning"], "hi": ["सुबह", "सवेरे", "भोर"], "ta": ["காலை", "காலையில்"]},
+    {"value": "afternoon", "en": ["afternoon", "noon", "midday"], "hi": ["दोपहर"], "ta": ["மதியம்", "பிற்பகல்", "பகல்"]},
+    {"value": "evening", "en": ["evening", "sunset"], "hi": ["शाम", "साँझ", "सूर्यास्त"], "ta": ["மாலை", "சாயங்காலம்", "சாயந்திரம்", "சூரிய அஸ்தமன"]}
+  ],
+  "descriptor": [
+    {"value": "temperature", "en": ["temperature", "temperatures", "degrees", "degree"], "hi": ["तापमान", "डिग्री"], "ta": ["வெப்பநிலை", "டிகிரி"]},
+    {"value": "fog", "en": ["fog", "foggy", "mist", "misty", "haze"], "hi": ["कोहरा", "धुंध"], "ta": ["மூடுபனி"]},
+    {"value": "snow", "en": ["snow", "snowing", "snowfall", "snowy"], "hi": ["बर्फ", "बर्फबारी", "हिमपात"], "ta": ["பனி"]},
+    {"value": "rain", "en": ["rain", "raining", "rainy", "rains", "shower", "showers", "drizzle", "umbrella", "raincoat", "wet", "storm", "thunderstorm"], "hi": ["बारिश", "वर्षा", "बरसात", "बरखा", "पानी", "मींह", "मेह", "छाता", "छाते", "रेनकोट", "बूंदाबांदी", "पाऊस", "तूफान"], "ta": ["மழை", "குடை", "தூறல்", "சாரல்", "ரெயின்கோட்", "புயல்"]},
+    {"value": "cold", "en": ["cold", "chilly", "freezing", "jacket", "coat", "sweater", "cool"], "hi": ["ठंड", "ठंडा", "ठंडी", "ठंढा", "सर्दी", "जाड़", "जैकेट", "कोट", "स्वेटर", "शीत"], "ta": ["குளிர", "குளிரு", "ஜில்", "ஜாக்கெட்", "கோட்", "ஸ்வெட்டர்", "மேல்சட்டை"]},
+    {"value": "hot", "en": ["hot", "warm", "heat", "scorching", "humid"], "hi": ["गर्म", "गर्मी", "गरमी", "लू", "उमस"], "ta": ["சூடு", "சூடா", "சூடாக", "வெப்பம", "கொளுத்து", "வெதுவெதுப்ப", "புழுக்கம்"]},
+    {"value": "sunny", "en": ["sunny", "sun", "sunshine", "sunscreen", "clear"], "hi": ["धूप", "घाम", "सनस्क्रीन", "साफ"], "ta": ["வெயில", "சன்ஸ்கிரீன்", "சூரிய"]},
+    {"value": "cloudy", "en": ["cloudy", "clouds", "cloud", "overcast"], "hi": ["बादल"], "ta": ["மேக"]},
+    {"value": "wind", "en": ["wind", "windy", "breeze", "breezy"], "hi": ["हवा", "बयार", "आंधी"], "ta": ["காற்று", "காத்து"]},
+    {"value": "humidity", "en": ["humidity", "muggy"], "hi": ["नमी"], "ta": ["ஈரப்பதம்"]}
+  ],
+  "home": {
+    "en": ["home", "here", "my city", "my location", "my area", "outside"],
+    "hi": ["घर", "यहाँ", "यहां", "इहाँ", "उरै", "मेरे शहर", "शहर", "गृहनगर", "बाहर"],
+    "ta": ["வீட்", "வீடு", "இங்கே", "இங்க", "நம்ம ஊர்", "ஊர்", "வெளியே", "வெளிய"]
+  },
+  "followup_markers": {
+    "en": ["and", "what about", "how about", "also", "then"],
+    "hi": ["और", "फिर", "तो", "आ", "अउर", "अर"],
+    "ta": ["அப்போ", "அப்ப", "அப்புறம்", "சரி", "பற்றி", "மற்றும்"]
+  }
+}

@@ -1,0 +1,11 @@
+torch>=2.1
+transformers>=4.40
+scikit-learn>=1.3
+numpy
+requests
+joblib
+pytest
+# optional
+sacrebleu      # chrF for the normaliser comparison
+soundfile      # Whisper speech input (/audio in chat)
+edge-tts       # neural reply speech in the question language

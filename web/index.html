@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NLP Weather AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Tamil:wght@400;600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="boot">
+    <p class="boot-title">NLP Weather AI</p>
+    <p class="boot-sub" id="boot-sub">Starting…</p>
+    <div class="boot-bar"><i></i></div>
+  </div>
+
+  <div id="app" hidden>
+    <header class="top">
+      <div class="brand">
+        <h1>NLP Weather AI</h1>
+        <p>English · Hindi · Tamil</p>
+      </div>
+      <div class="meta">
+        <span class="pill" id="nlu-pill">NLU</span>
+        <span class="pill ghost" id="asr-pill">Mic</span>
+        <span class="pill ghost" id="wx-pill">Weather</span>
+      </div>
+    </header>
+
+    <main class="stage">
+      <section class="chat-col">
+        <ol class="thread" id="thread"></ol>
+        <div class="empty" id="empty">
+          <p>Ask the weather in English, Hindi or Tamil.</p>
+          <p class="muted">Type below or use the mic. Follow-ups can switch language.</p>
+        </div>
+      </section>
+
+      <aside class="side">
+        <article class="panel">
+          <h3>Detected</h3>
+          <dl class="facts">
+            <div><dt>Language</dt><dd id="fact-lang">—</dd></div>
+            <div><dt>Dialect</dt><dd id="fact-dialect">—</dd></div>
+            <div><dt>Intent</dt><dd id="fact-intent">—</dd></div>
+            <div><dt>Mode</dt><dd id="mode-pill">idle</dd></div>
+          </dl>
+        </article>
+
+        <article class="panel">
+          <h3>Slots</h3>
+          <div class="slots" id="slots">
+            <div class="slot" data-k="place"><em>place</em><strong>—</strong><i></i></div>
+            <div class="slot" data-k="date"><em>date</em><strong>—</strong><i></i></div>
+            <div class="slot" data-k="timeofday"><em>time</em><strong>—</strong><i></i></div>
+            <div class="slot" data-k="descriptor"><em>about</em><strong>—</strong><i></i></div>
+          </div>
+        </article>
+
+        <article class="panel weather" id="wx">
+          <h3 id="wx-name">Weather</h3>
+          <p id="wx-names" class="muted">Ask a question to load a forecast.</p>
+          <div class="wx-row">
+            <div class="wx-temp" id="wx-temp">–°</div>
+            <div>
+              <div class="wx-cond" id="wx-cond">No forecast yet</div>
+              <div class="wx-mini">
+                <span>H <b id="wx-tmax">–</b></span>
+                <span>L <b id="wx-tmin">–</b></span>
+                <span>Rain <b id="wx-pop">–</b></span>
+                <span>Wind <b id="wx-wind">–</b></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h3>Spoken reply</h3>
+          <p class="speech-line" id="speech-line"><span class="muted">Follows the question language.</span></p>
+        </article>
+      </aside>
+    </main>
+
+    <footer class="dock">
+      <div class="chips" id="chips"></div>
+      <form id="composer" autocomplete="off">
+        <button type="button" id="mic" title="Hold to talk" aria-label="Hold to talk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg>
+        </button>
+        <div class="chatbox">
+          <input id="q" type="text" placeholder="Ask in English, हिंदी or தமிழ்" />
+          <button type="submit" id="send">Send</button>
+        </div>
+        <button type="button" id="reset" class="ghost">Reset</button>
+      </form>
+      <div class="dock-row">
+        <select id="reply-lang" title="Written reply language">
+          <option value="auto">Reply: same</option>
+          <option value="en">Reply: English</option>
+          <option value="hi">Reply: Hindi</option>
+          <option value="ta">Reply: Tamil</option>
+        </select>
+        <select id="asr-lang" title="Mic language">
+          <option value="auto">Mic: auto</option>
+          <option value="en">Mic: English</option>
+          <option value="hi">Mic: Hindi</option>
+          <option value="ta">Mic: Tamil</option>
+        </select>
+        <label class="tts"><input type="checkbox" id="tts" checked /> Speak reply</label>
+        <span class="mic-hint muted" id="mic-hint">Hold mic to talk · release to send. If Hindi or Tamil is heard as English, set Mic to that language.</span>
+      </div>
+    </footer>
+
+    <div id="listen" class="listen" hidden>
+      <div class="listen-orb" aria-hidden="true">
+        <span class="ring"></span>
+        <span class="ring r2"></span>
+        <span class="listen-core">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg>
+        </span>
+      </div>
+      <p class="listen-title">Listening</p>
+      <p class="muted">Release to send</p>
+    </div>
+
+    <button type="button" id="info-btn" class="info-btn" aria-label="NLP pipeline" title="NLP pipeline">i</button>
+    <div id="info-panel" class="info-panel" hidden>
+      <div class="info-card info-card-wide">
+        <div class="info-head">
+          <h2>NLP pipeline</h2>
+          <button type="button" id="info-close" class="info-close" aria-label="Close">×</button>
+        </div>
+        <p class="info-lead">Spoken language understanding + dialogue state for English, Hindi and Tamil. Numbers in answers come only from the weather API.</p>
+        <div class="info-grid" id="info-metrics"></div>
+        <h3>Stages</h3>
+        <ol class="info-stages">
+          <li><b>ASR (optional)</b> — Whisper maps waveform → text. Language can be forced (en / hi / ta) to cut language-ID errors on short clips.</li>
+          <li><b>Language ID</b> — native scripts (Devanagari / Tamil / Latin) first; romanized Hindi/Tamil cues (mein, mosam, mazhai…) override English when the text is Latin-only.</li>
+          <li><b>Dialect ID</b> — char n-gram TF-IDF (1–5) + word n-grams + linear SVM, <em>script-gated</em> so a Hindi utterance is never scored as Kongu. Labels: Bhojpuri, Haryanvi, Bambaiya · Chennai, Kongu, Madurai, Nellai.</li>
+          <li><b>Joint NLU</b> — MuRIL encoder with a learned mix of all layers (final LayerNorm on the public checkpoint is near-degenerate). Heads: intent (MASSIVE) + BIO slots (place, date, time-of-day, weather descriptor).</li>
+          <li><b>Canonicalisation</b> — surface forms → language-independent symbols (gazetteer places, relative dates, rain/temp/…). Dialect lexicons feed the same symbols.</li>
+          <li><b>Dialogue state</b> — blackboard carry-over: elliptical follow-ups inherit intent/slots across language switches. Joint goal accuracy collapses without this.</li>
+          <li><b>Tool + grounded NLG</b> — Open-Meteo payload only; templates lexicalise WMO codes and dates per reply language.</li>
+          <li><b>Travel time</b> — “how long to get there” keeps the place from the previous turn in any language. Road distance (driving route, or haversine × 1.35) is stretched by rain, storms, fog, snow or wind. Say “I'm in Delhi” to set the start, or allow location.</li>
+          <li><b>Spoken form + TTS</b> — numbers/symbols → words in the <em>question</em> language; optional lexicon dialect wording (voice stays en/hi/ta neural TTS).</li>
+        </ol>
+        <p class="info-note muted" id="info-note">Dialect train/test rewrites are synthetic unless you add native-speaker rows under data/dialect/collected/.</p>
+      </div>
+    </div>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

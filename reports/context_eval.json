@@ -1,0 +1,1748 @@
+{
+  "rules": {
+    "ALL": {
+      "n": 4500.0,
+      "intent_acc": 0.8626666666666667,
+      "target_acc": 0.9957777777777778,
+      "carry_acc": 0.8477777777777777,
+      "jga": 0.7071111111111111,
+      "followup_detected": 0.996
+    },
+    "same-standard": {
+      "n": 450.0,
+      "intent_acc": 0.8666666666666667,
+      "target_acc": 1.0,
+      "carry_acc": 0.8577777777777778,
+      "jga": 0.7244444444444444,
+      "followup_detected": 1.0
+    },
+    "L2=en:standard": {
+      "n": 450.0,
+      "intent_acc": 0.8666666666666667,
+      "target_acc": 1.0,
+      "carry_acc": 0.8444444444444444,
+      "jga": 0.7088888888888889,
+      "followup_detected": 1.0
+    },
+    "en->en": {
+      "n": 150.0,
+      "intent_acc": 0.88,
+      "target_acc": 1.0,
+      "carry_acc": 0.8333333333333334,
+      "jga": 0.7066666666666667,
+      "followup_detected": 1.0
+    },
+    "cross-standard": {
+      "n": 900.0,
+      "intent_acc": 0.8666666666666667,
+      "target_acc": 1.0,
+      "carry_acc": 0.8477777777777777,
+      "jga": 0.71,
+      "followup_detected": 1.0
+    },
+    "L2=hi:standard": {
+      "n": 450.0,
+      "intent_acc": 0.8666666666666667,
+      "target_acc": 1.0,
+      "carry_acc": 0.8555555555555555,
+      "jga": 0.7155555555555555,
+      "followup_detected": 1.0
+    },
+    "en->hi": {
+      "n": 600.0,
+      "intent_acc": 0.88,
+      "target_acc": 1.0,
+      "carry_acc": 0.8416666666666667,
+      "jga": 0.7,
+      "followup_detected": 1.0
+    },
+    "cross-dialect": {
+      "n": 2100.0,
+      "intent_acc": 0.8647619047619047,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.8385714285714285,
+      "jga": 0.6957142857142857,
+      "followup_detected": 0.9938095238095238
+    },
+    "L2=hi:bhojpuri": {
+      "n": 450.0,
+      "intent_acc": 0.8666666666666667,
+      "target_acc": 1.0,
+      "carry_acc": 0.8577777777777778,
+      "jga": 0.7088888888888889,
+      "followup_detected": 1.0
+    },
+    "L2=hi:haryanvi": {
+      "n": 450.0,
+      "intent_acc": 0.8666666666666667,
+      "target_acc": 1.0,
+      "carry_acc": 0.8444444444444444,
+      "jga": 0.7,
+      "followup_detected": 1.0
+    },
+    "L2=hi:bambaiya": {
+      "n": 450.0,
+      "intent_acc": 0.8666666666666667,
+      "target_acc": 1.0,
+      "carry_acc": 0.8533333333333334,
+      "jga": 0.7088888888888889,
+      "followup_detected": 1.0
+    },
+    "L2=ta:standard": {
+      "n": 450.0,
+      "intent_acc": 0.8666666666666667,
+      "target_acc": 1.0,
+      "carry_acc": 0.8533333333333334,
+      "jga": 0.72,
+      "followup_detected": 1.0
+    },
+    "en->ta": {
+      "n": 750.0,
+      "intent_acc": 0.868,
+      "target_acc": 0.988,
+      "carry_acc": 0.8106666666666666,
+      "jga": 0.6826666666666666,
+      "followup_detected": 0.988
+    },
+    "L2=ta:chennai": {
+      "n": 450.0,
+      "intent_acc": 0.8444444444444444,
+      "target_acc": 0.9777777777777777,
+      "carry_acc": 0.8422222222222222,
+      "jga": 0.7066666666666667,
+      "followup_detected": 0.9777777777777777
+    },
+    "L2=ta:kongu": {
+      "n": 450.0,
+      "intent_acc": 0.86,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.8555555555555555,
+      "jga": 0.7066666666666667,
+      "followup_detected": 0.9933333333333333
+    },
+    "L2=ta:madurai": {
+      "n": 450.0,
+      "intent_acc": 0.8644444444444445,
+      "target_acc": 0.9977777777777778,
+      "carry_acc": 0.8444444444444444,
+      "jga": 0.7,
+      "followup_detected": 0.9977777777777778
+    },
+    "L2=ta:nellai": {
+      "n": 450.0,
+      "intent_acc": 0.8577777777777778,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.8266666666666667,
+      "jga": 0.6955555555555556,
+      "followup_detected": 0.9911111111111112
+    },
+    "hi->en": {
+      "n": 150.0,
+      "intent_acc": 0.8733333333333333,
+      "target_acc": 1.0,
+      "carry_acc": 0.84,
+      "jga": 0.7,
+      "followup_detected": 1.0
+    },
+    "hi->hi": {
+      "n": 600.0,
+      "intent_acc": 0.8733333333333333,
+      "target_acc": 1.0,
+      "carry_acc": 0.85,
+      "jga": 0.715,
+      "followup_detected": 1.0
+    },
+    "same-dialect": {
+      "n": 1050.0,
+      "intent_acc": 0.8533333333333334,
+      "target_acc": 0.9952380952380953,
+      "carry_acc": 0.861904761904762,
+      "jga": 0.72,
+      "followup_detected": 0.9952380952380953
+    },
+    "hi->ta": {
+      "n": 750.0,
+      "intent_acc": 0.868,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.848,
+      "jga": 0.7053333333333334,
+      "followup_detected": 0.9946666666666667
+    },
+    "ta->en": {
+      "n": 150.0,
+      "intent_acc": 0.8466666666666667,
+      "target_acc": 1.0,
+      "carry_acc": 0.86,
+      "jga": 0.72,
+      "followup_detected": 1.0
+    },
+    "ta->hi": {
+      "n": 600.0,
+      "intent_acc": 0.8466666666666667,
+      "target_acc": 1.0,
+      "carry_acc": 0.8666666666666667,
+      "jga": 0.71,
+      "followup_detected": 1.0
+    },
+    "ta->ta": {
+      "n": 750.0,
+      "intent_acc": 0.84,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.8746666666666667,
+      "jga": 0.7293333333333333,
+      "followup_detected": 0.9933333333333333
+    }
+  },
+  "rules/oracle-turn1": {
+    "ALL": {
+      "n": 4500.0,
+      "intent_acc": 0.9957777777777778,
+      "target_acc": 0.9957777777777778,
+      "carry_acc": 0.9973333333333333,
+      "jga": 0.9957777777777778,
+      "followup_detected": 0.9957777777777778
+    },
+    "same-standard": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "L2=en:standard": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "en->en": {
+      "n": 150.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "cross-standard": {
+      "n": 900.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "L2=hi:standard": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "en->hi": {
+      "n": 600.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "cross-dialect": {
+      "n": 2100.0,
+      "intent_acc": 0.9933333333333333,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.9957142857142857,
+      "jga": 0.9933333333333333,
+      "followup_detected": 0.9933333333333333
+    },
+    "L2=hi:bhojpuri": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "L2=hi:haryanvi": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "L2=hi:bambaiya": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "L2=ta:standard": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "en->ta": {
+      "n": 750.0,
+      "intent_acc": 0.988,
+      "target_acc": 0.988,
+      "carry_acc": 0.992,
+      "jga": 0.988,
+      "followup_detected": 0.988
+    },
+    "L2=ta:chennai": {
+      "n": 450.0,
+      "intent_acc": 0.9777777777777777,
+      "target_acc": 0.9777777777777777,
+      "carry_acc": 0.9844444444444445,
+      "jga": 0.9777777777777777,
+      "followup_detected": 0.9777777777777777
+    },
+    "L2=ta:kongu": {
+      "n": 450.0,
+      "intent_acc": 0.9911111111111112,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.9955555555555555,
+      "jga": 0.9911111111111112,
+      "followup_detected": 0.9911111111111112
+    },
+    "L2=ta:madurai": {
+      "n": 450.0,
+      "intent_acc": 0.9977777777777778,
+      "target_acc": 0.9977777777777778,
+      "carry_acc": 1.0,
+      "jga": 0.9977777777777778,
+      "followup_detected": 0.9977777777777778
+    },
+    "L2=ta:nellai": {
+      "n": 450.0,
+      "intent_acc": 0.9911111111111112,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.9933333333333333,
+      "jga": 0.9911111111111112,
+      "followup_detected": 0.9911111111111112
+    },
+    "hi->en": {
+      "n": 150.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "hi->hi": {
+      "n": 600.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "same-dialect": {
+      "n": 1050.0,
+      "intent_acc": 0.9952380952380953,
+      "target_acc": 0.9952380952380953,
+      "carry_acc": 0.9971428571428571,
+      "jga": 0.9952380952380953,
+      "followup_detected": 0.9952380952380953
+    },
+    "hi->ta": {
+      "n": 750.0,
+      "intent_acc": 0.9933333333333333,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.996,
+      "jga": 0.9933333333333333,
+      "followup_detected": 0.9933333333333333
+    },
+    "ta->en": {
+      "n": 150.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "ta->hi": {
+      "n": 600.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "ta->ta": {
+      "n": 750.0,
+      "intent_acc": 0.9933333333333333,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.996,
+      "jga": 0.9933333333333333,
+      "followup_detected": 0.9933333333333333
+    }
+  },
+  "rules/no-context": {
+    "ALL": {
+      "n": 4500.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9957777777777778,
+      "carry_acc": 0.31577777777777777,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "same-standard": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.3088888888888889,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=en:standard": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.31777777777777777,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "en->en": {
+      "n": 150.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.3333333333333333,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "cross-standard": {
+      "n": 900.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.32,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=hi:standard": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.31333333333333335,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "en->hi": {
+      "n": 600.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.32666666666666666,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "cross-dialect": {
+      "n": 2100.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.31476190476190474,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=hi:bhojpuri": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.30666666666666664,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=hi:haryanvi": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.33111111111111113,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=hi:bambaiya": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.3088888888888889,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=ta:standard": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.31777777777777777,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "en->ta": {
+      "n": 750.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.988,
+      "carry_acc": 0.30933333333333335,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=ta:chennai": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9777777777777777,
+      "carry_acc": 0.31333333333333335,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=ta:kongu": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.32222222222222224,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=ta:madurai": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9977777777777778,
+      "carry_acc": 0.31777777777777777,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=ta:nellai": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.3088888888888889,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "hi->en": {
+      "n": 150.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.3466666666666667,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "hi->hi": {
+      "n": 600.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.315,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "same-dialect": {
+      "n": 1050.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9952380952380953,
+      "carry_acc": 0.3171428571428571,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "hi->ta": {
+      "n": 750.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.328,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "ta->en": {
+      "n": 150.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.2733333333333333,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "ta->hi": {
+      "n": 600.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.30333333333333334,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "ta->ta": {
+      "n": 750.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.31066666666666665,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    }
+  },
+  "muril_std": {
+    "ALL": {
+      "n": 4500.0,
+      "intent_acc": 0.9417777777777778,
+      "target_acc": 0.9728888888888889,
+      "carry_acc": 0.9395555555555556,
+      "jga": 0.7868888888888889,
+      "followup_detected": 0.9815555555555555
+    },
+    "same-standard": {
+      "n": 450.0,
+      "intent_acc": 0.9666666666666667,
+      "target_acc": 0.9422222222222222,
+      "carry_acc": 0.9444444444444444,
+      "jga": 0.7888888888888889,
+      "followup_detected": 0.9866666666666667
+    },
+    "L2=en:standard": {
+      "n": 450.0,
+      "intent_acc": 0.9533333333333334,
+      "target_acc": 0.7711111111111111,
+      "carry_acc": 0.9466666666666667,
+      "jga": 0.6244444444444445,
+      "followup_detected": 1.0
+    },
+    "en->en": {
+      "n": 150.0,
+      "intent_acc": 0.96,
+      "target_acc": 0.8266666666666667,
+      "carry_acc": 0.9466666666666667,
+      "jga": 0.6933333333333334,
+      "followup_detected": 1.0
+    },
+    "cross-standard": {
+      "n": 900.0,
+      "intent_acc": 0.9577777777777777,
+      "target_acc": 0.9144444444444444,
+      "carry_acc": 0.9455555555555556,
+      "jga": 0.7488888888888889,
+      "followup_detected": 0.9888888888888889
+    },
+    "L2=hi:standard": {
+      "n": 450.0,
+      "intent_acc": 0.9644444444444444,
+      "target_acc": 1.0,
+      "carry_acc": 0.9511111111111111,
+      "jga": 0.8311111111111111,
+      "followup_detected": 0.9888888888888889
+    },
+    "en->hi": {
+      "n": 600.0,
+      "intent_acc": 0.9283333333333333,
+      "target_acc": 1.0,
+      "carry_acc": 0.95,
+      "jga": 0.8066666666666666,
+      "followup_detected": 0.9616666666666667
+    },
+    "cross-dialect": {
+      "n": 2100.0,
+      "intent_acc": 0.9352380952380952,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.94,
+      "jga": 0.799047619047619,
+      "followup_detected": 0.9771428571428571
+    },
+    "L2=hi:bhojpuri": {
+      "n": 450.0,
+      "intent_acc": 0.9422222222222222,
+      "target_acc": 1.0,
+      "carry_acc": 0.9444444444444444,
+      "jga": 0.8088888888888889,
+      "followup_detected": 0.9866666666666667
+    },
+    "L2=hi:haryanvi": {
+      "n": 450.0,
+      "intent_acc": 0.8355555555555556,
+      "target_acc": 1.0,
+      "carry_acc": 0.8866666666666667,
+      "jga": 0.7177777777777777,
+      "followup_detected": 0.8755555555555555
+    },
+    "L2=hi:bambaiya": {
+      "n": 450.0,
+      "intent_acc": 0.9533333333333334,
+      "target_acc": 1.0,
+      "carry_acc": 0.9533333333333334,
+      "jga": 0.82,
+      "followup_detected": 1.0
+    },
+    "L2=ta:standard": {
+      "n": 450.0,
+      "intent_acc": 0.9644444444444444,
+      "target_acc": 1.0,
+      "carry_acc": 0.9377777777777778,
+      "jga": 0.8311111111111111,
+      "followup_detected": 0.9755555555555555
+    },
+    "en->ta": {
+      "n": 750.0,
+      "intent_acc": 0.96,
+      "target_acc": 0.988,
+      "carry_acc": 0.9466666666666667,
+      "jga": 0.8226666666666667,
+      "followup_detected": 0.9946666666666667
+    },
+    "L2=ta:chennai": {
+      "n": 450.0,
+      "intent_acc": 0.9488888888888889,
+      "target_acc": 0.9777777777777777,
+      "carry_acc": 0.9444444444444444,
+      "jga": 0.8111111111111111,
+      "followup_detected": 0.9955555555555555
+    },
+    "L2=ta:kongu": {
+      "n": 450.0,
+      "intent_acc": 0.9488888888888889,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.9466666666666667,
+      "jga": 0.8,
+      "followup_detected": 0.9933333333333333
+    },
+    "L2=ta:madurai": {
+      "n": 450.0,
+      "intent_acc": 0.9533333333333334,
+      "target_acc": 0.9977777777777778,
+      "carry_acc": 0.94,
+      "jga": 0.8066666666666666,
+      "followup_detected": 1.0
+    },
+    "L2=ta:nellai": {
+      "n": 450.0,
+      "intent_acc": 0.9533333333333334,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.9444444444444444,
+      "jga": 0.8177777777777778,
+      "followup_detected": 1.0
+    },
+    "hi->en": {
+      "n": 150.0,
+      "intent_acc": 0.96,
+      "target_acc": 0.8133333333333334,
+      "carry_acc": 0.96,
+      "jga": 0.6466666666666666,
+      "followup_detected": 1.0
+    },
+    "hi->hi": {
+      "n": 600.0,
+      "intent_acc": 0.9316666666666666,
+      "target_acc": 1.0,
+      "carry_acc": 0.94,
+      "jga": 0.805,
+      "followup_detected": 0.9683333333333334
+    },
+    "same-dialect": {
+      "n": 1050.0,
+      "intent_acc": 0.9304761904761905,
+      "target_acc": 0.9952380952380953,
+      "carry_acc": 0.9314285714285714,
+      "jga": 0.7942857142857143,
+      "followup_detected": 0.981904761904762
+    },
+    "hi->ta": {
+      "n": 750.0,
+      "intent_acc": 0.956,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.952,
+      "jga": 0.8146666666666667,
+      "followup_detected": 0.992
+    },
+    "ta->en": {
+      "n": 150.0,
+      "intent_acc": 0.94,
+      "target_acc": 0.6733333333333333,
+      "carry_acc": 0.9333333333333333,
+      "jga": 0.5333333333333333,
+      "followup_detected": 1.0
+    },
+    "ta->hi": {
+      "n": 600.0,
+      "intent_acc": 0.9116666666666666,
+      "target_acc": 1.0,
+      "carry_acc": 0.9116666666666666,
+      "jga": 0.7716666666666666,
+      "followup_detected": 0.9583333333333334
+    },
+    "ta->ta": {
+      "n": 750.0,
+      "intent_acc": 0.9453333333333334,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.9293333333333333,
+      "jga": 0.8026666666666666,
+      "followup_detected": 0.992
+    }
+  },
+  "muril_std/oracle-turn1": {
+    "ALL": {
+      "n": 4500.0,
+      "intent_acc": 0.9844444444444445,
+      "target_acc": 0.9728888888888889,
+      "carry_acc": 0.99,
+      "jga": 0.9568888888888889,
+      "followup_detected": 0.9844444444444445
+    },
+    "same-standard": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.9422222222222222,
+      "carry_acc": 1.0,
+      "jga": 0.9422222222222222,
+      "followup_detected": 1.0
+    },
+    "L2=en:standard": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.7711111111111111,
+      "carry_acc": 1.0,
+      "jga": 0.7666666666666667,
+      "followup_detected": 1.0
+    },
+    "en->en": {
+      "n": 150.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.8266666666666667,
+      "carry_acc": 1.0,
+      "jga": 0.8266666666666667,
+      "followup_detected": 1.0
+    },
+    "cross-standard": {
+      "n": 900.0,
+      "intent_acc": 0.9966666666666667,
+      "target_acc": 0.9144444444444444,
+      "carry_acc": 0.9966666666666667,
+      "jga": 0.9088888888888889,
+      "followup_detected": 0.9966666666666667
+    },
+    "L2=hi:standard": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "en->hi": {
+      "n": 600.0,
+      "intent_acc": 0.9633333333333334,
+      "target_acc": 1.0,
+      "carry_acc": 0.9833333333333333,
+      "jga": 0.9633333333333334,
+      "followup_detected": 0.9633333333333334
+    },
+    "cross-dialect": {
+      "n": 2100.0,
+      "intent_acc": 0.9771428571428571,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.9866666666666667,
+      "jga": 0.9704761904761905,
+      "followup_detected": 0.9771428571428571
+    },
+    "L2=hi:bhojpuri": {
+      "n": 450.0,
+      "intent_acc": 0.9866666666666667,
+      "target_acc": 1.0,
+      "carry_acc": 0.9911111111111112,
+      "jga": 0.9866666666666667,
+      "followup_detected": 0.9866666666666667
+    },
+    "L2=hi:haryanvi": {
+      "n": 450.0,
+      "intent_acc": 0.8755555555555555,
+      "target_acc": 1.0,
+      "carry_acc": 0.9244444444444444,
+      "jga": 0.8755555555555555,
+      "followup_detected": 0.8755555555555555
+    },
+    "L2=hi:bambaiya": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "L2=ta:standard": {
+      "n": 450.0,
+      "intent_acc": 0.9933333333333333,
+      "target_acc": 1.0,
+      "carry_acc": 0.9933333333333333,
+      "jga": 0.9933333333333333,
+      "followup_detected": 0.9933333333333333
+    },
+    "en->ta": {
+      "n": 750.0,
+      "intent_acc": 0.9973333333333333,
+      "target_acc": 0.988,
+      "carry_acc": 0.9973333333333333,
+      "jga": 0.9853333333333333,
+      "followup_detected": 0.9973333333333333
+    },
+    "L2=ta:chennai": {
+      "n": 450.0,
+      "intent_acc": 0.9955555555555555,
+      "target_acc": 0.9777777777777777,
+      "carry_acc": 0.9955555555555555,
+      "jga": 0.9733333333333334,
+      "followup_detected": 0.9955555555555555
+    },
+    "L2=ta:kongu": {
+      "n": 450.0,
+      "intent_acc": 0.9933333333333333,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.9955555555555555,
+      "jga": 0.9844444444444445,
+      "followup_detected": 0.9933333333333333
+    },
+    "L2=ta:madurai": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.9977777777777778,
+      "carry_acc": 1.0,
+      "jga": 0.9977777777777778,
+      "followup_detected": 1.0
+    },
+    "L2=ta:nellai": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 1.0,
+      "jga": 0.9911111111111112,
+      "followup_detected": 1.0
+    },
+    "hi->en": {
+      "n": 150.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.8133333333333334,
+      "carry_acc": 1.0,
+      "jga": 0.8,
+      "followup_detected": 1.0
+    },
+    "hi->hi": {
+      "n": 600.0,
+      "intent_acc": 0.97,
+      "target_acc": 1.0,
+      "carry_acc": 0.9783333333333334,
+      "jga": 0.97,
+      "followup_detected": 0.97
+    },
+    "same-dialect": {
+      "n": 1050.0,
+      "intent_acc": 0.981904761904762,
+      "target_acc": 0.9952380952380953,
+      "carry_acc": 0.9866666666666667,
+      "jga": 0.9771428571428571,
+      "followup_detected": 0.981904761904762
+    },
+    "hi->ta": {
+      "n": 750.0,
+      "intent_acc": 0.9933333333333333,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.9946666666666667,
+      "jga": 0.9866666666666667,
+      "followup_detected": 0.9933333333333333
+    },
+    "ta->en": {
+      "n": 150.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.6733333333333333,
+      "carry_acc": 1.0,
+      "jga": 0.6733333333333333,
+      "followup_detected": 1.0
+    },
+    "ta->hi": {
+      "n": 600.0,
+      "intent_acc": 0.9633333333333334,
+      "target_acc": 1.0,
+      "carry_acc": 0.975,
+      "jga": 0.9633333333333334,
+      "followup_detected": 0.9633333333333334
+    },
+    "ta->ta": {
+      "n": 750.0,
+      "intent_acc": 0.9986666666666667,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.9986666666666667,
+      "jga": 0.992,
+      "followup_detected": 0.9986666666666667
+    }
+  },
+  "muril_std/no-context": {
+    "ALL": {
+      "n": 4500.0,
+      "intent_acc": 0.06488888888888888,
+      "target_acc": 0.9728888888888889,
+      "carry_acc": 0.31577777777777777,
+      "jga": 0.020666666666666667,
+      "followup_detected": 0.0
+    },
+    "same-standard": {
+      "n": 450.0,
+      "intent_acc": 0.1688888888888889,
+      "target_acc": 0.9422222222222222,
+      "carry_acc": 0.3088888888888889,
+      "jga": 0.05333333333333334,
+      "followup_detected": 0.0
+    },
+    "L2=en:standard": {
+      "n": 450.0,
+      "intent_acc": 0.015555555555555555,
+      "target_acc": 0.7711111111111111,
+      "carry_acc": 0.31777777777777777,
+      "jga": 0.0044444444444444444,
+      "followup_detected": 0.0
+    },
+    "en->en": {
+      "n": 150.0,
+      "intent_acc": 0.006666666666666667,
+      "target_acc": 0.8266666666666667,
+      "carry_acc": 0.3333333333333333,
+      "jga": 0.006666666666666667,
+      "followup_detected": 0.0
+    },
+    "cross-standard": {
+      "n": 900.0,
+      "intent_acc": 0.17666666666666667,
+      "target_acc": 0.9144444444444444,
+      "carry_acc": 0.32,
+      "jga": 0.058888888888888886,
+      "followup_detected": 0.0
+    },
+    "L2=hi:standard": {
+      "n": 450.0,
+      "intent_acc": 0.1622222222222222,
+      "target_acc": 1.0,
+      "carry_acc": 0.31333333333333335,
+      "jga": 0.03333333333333333,
+      "followup_detected": 0.0
+    },
+    "en->hi": {
+      "n": 600.0,
+      "intent_acc": 0.043333333333333335,
+      "target_acc": 1.0,
+      "carry_acc": 0.32666666666666666,
+      "jga": 0.011666666666666667,
+      "followup_detected": 0.0
+    },
+    "cross-dialect": {
+      "n": 2100.0,
+      "intent_acc": 0.020476190476190478,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.31476190476190474,
+      "jga": 0.005714285714285714,
+      "followup_detected": 0.0
+    },
+    "L2=hi:bhojpuri": {
+      "n": 450.0,
+      "intent_acc": 0.011111111111111112,
+      "target_acc": 1.0,
+      "carry_acc": 0.30666666666666664,
+      "jga": 0.0022222222222222222,
+      "followup_detected": 0.0
+    },
+    "L2=hi:haryanvi": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.33111111111111113,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=hi:bambaiya": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.3088888888888889,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=ta:standard": {
+      "n": 450.0,
+      "intent_acc": 0.34444444444444444,
+      "target_acc": 1.0,
+      "carry_acc": 0.31777777777777777,
+      "jga": 0.13333333333333333,
+      "followup_detected": 0.0
+    },
+    "en->ta": {
+      "n": 750.0,
+      "intent_acc": 0.08533333333333333,
+      "target_acc": 0.988,
+      "carry_acc": 0.30933333333333335,
+      "jga": 0.030666666666666665,
+      "followup_detected": 0.0
+    },
+    "L2=ta:chennai": {
+      "n": 450.0,
+      "intent_acc": 0.11555555555555555,
+      "target_acc": 0.9777777777777777,
+      "carry_acc": 0.31333333333333335,
+      "jga": 0.03333333333333333,
+      "followup_detected": 0.0
+    },
+    "L2=ta:kongu": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.32222222222222224,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=ta:madurai": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9977777777777778,
+      "carry_acc": 0.31777777777777777,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "L2=ta:nellai": {
+      "n": 450.0,
+      "intent_acc": 0.0,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.3088888888888889,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "hi->en": {
+      "n": 150.0,
+      "intent_acc": 0.02666666666666667,
+      "target_acc": 0.8133333333333334,
+      "carry_acc": 0.3466666666666667,
+      "jga": 0.006666666666666667,
+      "followup_detected": 0.0
+    },
+    "hi->hi": {
+      "n": 600.0,
+      "intent_acc": 0.045,
+      "target_acc": 1.0,
+      "carry_acc": 0.315,
+      "jga": 0.008333333333333333,
+      "followup_detected": 0.0
+    },
+    "same-dialect": {
+      "n": 1050.0,
+      "intent_acc": 0.013333333333333334,
+      "target_acc": 0.9952380952380953,
+      "carry_acc": 0.3171428571428571,
+      "jga": 0.0038095238095238095,
+      "followup_detected": 0.0
+    },
+    "hi->ta": {
+      "n": 750.0,
+      "intent_acc": 0.108,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.328,
+      "jga": 0.04,
+      "followup_detected": 0.0
+    },
+    "ta->en": {
+      "n": 150.0,
+      "intent_acc": 0.013333333333333334,
+      "target_acc": 0.6733333333333333,
+      "carry_acc": 0.2733333333333333,
+      "jga": 0.0,
+      "followup_detected": 0.0
+    },
+    "ta->hi": {
+      "n": 600.0,
+      "intent_acc": 0.041666666666666664,
+      "target_acc": 1.0,
+      "carry_acc": 0.30333333333333334,
+      "jga": 0.006666666666666667,
+      "followup_detected": 0.0
+    },
+    "ta->ta": {
+      "n": 750.0,
+      "intent_acc": 0.08266666666666667,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.31066666666666665,
+      "jga": 0.029333333333333333,
+      "followup_detected": 0.0
+    }
+  },
+  "muril_dialect": {
+    "ALL": {
+      "n": 4500.0,
+      "intent_acc": 0.9697777777777777,
+      "target_acc": 0.9728888888888889,
+      "carry_acc": 0.9666666666666667,
+      "jga": 0.832,
+      "followup_detected": 0.9906666666666667
+    },
+    "same-standard": {
+      "n": 450.0,
+      "intent_acc": 0.9822222222222222,
+      "target_acc": 0.9422222222222222,
+      "carry_acc": 0.9666666666666667,
+      "jga": 0.8222222222222222,
+      "followup_detected": 0.9911111111111112
+    },
+    "L2=en:standard": {
+      "n": 450.0,
+      "intent_acc": 0.9733333333333334,
+      "target_acc": 0.7711111111111111,
+      "carry_acc": 0.9688888888888889,
+      "jga": 0.66,
+      "followup_detected": 1.0
+    },
+    "en->en": {
+      "n": 150.0,
+      "intent_acc": 0.9866666666666667,
+      "target_acc": 0.8266666666666667,
+      "carry_acc": 0.9666666666666667,
+      "jga": 0.7333333333333333,
+      "followup_detected": 1.0
+    },
+    "cross-standard": {
+      "n": 900.0,
+      "intent_acc": 0.9822222222222222,
+      "target_acc": 0.9144444444444444,
+      "carry_acc": 0.9688888888888889,
+      "jga": 0.7877777777777778,
+      "followup_detected": 0.9911111111111112
+    },
+    "L2=hi:standard": {
+      "n": 450.0,
+      "intent_acc": 0.9844444444444445,
+      "target_acc": 1.0,
+      "carry_acc": 0.9755555555555555,
+      "jga": 0.8733333333333333,
+      "followup_detected": 0.9888888888888889
+    },
+    "en->hi": {
+      "n": 600.0,
+      "intent_acc": 0.985,
+      "target_acc": 1.0,
+      "carry_acc": 0.9833333333333333,
+      "jga": 0.8716666666666667,
+      "followup_detected": 0.9916666666666667
+    },
+    "cross-dialect": {
+      "n": 2100.0,
+      "intent_acc": 0.9685714285714285,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.9676190476190476,
+      "jga": 0.8476190476190476,
+      "followup_detected": 0.9904761904761905
+    },
+    "L2=hi:bhojpuri": {
+      "n": 450.0,
+      "intent_acc": 0.9711111111111111,
+      "target_acc": 1.0,
+      "carry_acc": 0.9711111111111111,
+      "jga": 0.8555555555555555,
+      "followup_detected": 0.9933333333333333
+    },
+    "L2=hi:haryanvi": {
+      "n": 450.0,
+      "intent_acc": 0.9555555555555556,
+      "target_acc": 1.0,
+      "carry_acc": 0.9666666666666667,
+      "jga": 0.8444444444444444,
+      "followup_detected": 0.9822222222222222
+    },
+    "L2=hi:bambaiya": {
+      "n": 450.0,
+      "intent_acc": 0.9733333333333334,
+      "target_acc": 1.0,
+      "carry_acc": 0.9777777777777777,
+      "jga": 0.86,
+      "followup_detected": 1.0
+    },
+    "L2=ta:standard": {
+      "n": 450.0,
+      "intent_acc": 0.9888888888888889,
+      "target_acc": 1.0,
+      "carry_acc": 0.96,
+      "jga": 0.8644444444444445,
+      "followup_detected": 0.9844444444444445
+    },
+    "en->ta": {
+      "n": 750.0,
+      "intent_acc": 0.98,
+      "target_acc": 0.988,
+      "carry_acc": 0.964,
+      "jga": 0.8573333333333333,
+      "followup_detected": 0.9906666666666667
+    },
+    "L2=ta:chennai": {
+      "n": 450.0,
+      "intent_acc": 0.9733333333333334,
+      "target_acc": 0.9777777777777777,
+      "carry_acc": 0.9711111111111111,
+      "jga": 0.8533333333333334,
+      "followup_detected": 1.0
+    },
+    "L2=ta:kongu": {
+      "n": 450.0,
+      "intent_acc": 0.96,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.9622222222222222,
+      "jga": 0.8311111111111111,
+      "followup_detected": 0.9866666666666667
+    },
+    "L2=ta:madurai": {
+      "n": 450.0,
+      "intent_acc": 0.9733333333333334,
+      "target_acc": 0.9977777777777778,
+      "carry_acc": 0.9644444444444444,
+      "jga": 0.8488888888888889,
+      "followup_detected": 1.0
+    },
+    "L2=ta:nellai": {
+      "n": 450.0,
+      "intent_acc": 0.9444444444444444,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.9488888888888889,
+      "jga": 0.8288888888888889,
+      "followup_detected": 0.9711111111111111
+    },
+    "hi->en": {
+      "n": 150.0,
+      "intent_acc": 0.9733333333333334,
+      "target_acc": 0.8133333333333334,
+      "carry_acc": 0.9733333333333334,
+      "jga": 0.6866666666666666,
+      "followup_detected": 1.0
+    },
+    "hi->hi": {
+      "n": 600.0,
+      "intent_acc": 0.9683333333333334,
+      "target_acc": 1.0,
+      "carry_acc": 0.97,
+      "jga": 0.855,
+      "followup_detected": 0.995
+    },
+    "same-dialect": {
+      "n": 1050.0,
+      "intent_acc": 0.9561904761904761,
+      "target_acc": 0.9952380952380953,
+      "carry_acc": 0.9628571428571429,
+      "jga": 0.8428571428571429,
+      "followup_detected": 0.9904761904761905
+    },
+    "hi->ta": {
+      "n": 750.0,
+      "intent_acc": 0.968,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.9613333333333334,
+      "jga": 0.836,
+      "followup_detected": 0.9893333333333333
+    },
+    "ta->en": {
+      "n": 150.0,
+      "intent_acc": 0.96,
+      "target_acc": 0.6733333333333333,
+      "carry_acc": 0.9666666666666667,
+      "jga": 0.56,
+      "followup_detected": 1.0
+    },
+    "ta->hi": {
+      "n": 600.0,
+      "intent_acc": 0.96,
+      "target_acc": 1.0,
+      "carry_acc": 0.965,
+      "jga": 0.8483333333333334,
+      "followup_detected": 0.9866666666666667
+    },
+    "ta->ta": {
+      "n": 750.0,
+      "intent_acc": 0.956,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.9586666666666667,
+      "jga": 0.8426666666666667,
+      "followup_detected": 0.9853333333333333
+    }
+  },
+  "muril_dialect/oracle-turn1": {
+    "ALL": {
+      "n": 4500.0,
+      "intent_acc": 0.9935555555555555,
+      "target_acc": 0.9728888888888889,
+      "carry_acc": 0.9953333333333333,
+      "jga": 0.966,
+      "followup_detected": 0.9935555555555555
+    },
+    "same-standard": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.9422222222222222,
+      "carry_acc": 1.0,
+      "jga": 0.9422222222222222,
+      "followup_detected": 1.0
+    },
+    "L2=en:standard": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.7711111111111111,
+      "carry_acc": 1.0,
+      "jga": 0.7711111111111111,
+      "followup_detected": 1.0
+    },
+    "en->en": {
+      "n": 150.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.8266666666666667,
+      "carry_acc": 1.0,
+      "jga": 0.8266666666666667,
+      "followup_detected": 1.0
+    },
+    "cross-standard": {
+      "n": 900.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.9144444444444444,
+      "carry_acc": 0.9977777777777778,
+      "jga": 0.9122222222222223,
+      "followup_detected": 1.0
+    },
+    "L2=hi:standard": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "en->hi": {
+      "n": 600.0,
+      "intent_acc": 0.995,
+      "target_acc": 1.0,
+      "carry_acc": 0.9983333333333333,
+      "jga": 0.995,
+      "followup_detected": 0.995
+    },
+    "cross-dialect": {
+      "n": 2100.0,
+      "intent_acc": 0.9909523809523809,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.9942857142857143,
+      "jga": 0.9842857142857143,
+      "followup_detected": 0.9909523809523809
+    },
+    "L2=hi:bhojpuri": {
+      "n": 450.0,
+      "intent_acc": 0.9955555555555555,
+      "target_acc": 1.0,
+      "carry_acc": 0.9955555555555555,
+      "jga": 0.9955555555555555,
+      "followup_detected": 0.9955555555555555
+    },
+    "L2=hi:haryanvi": {
+      "n": 450.0,
+      "intent_acc": 0.9822222222222222,
+      "target_acc": 1.0,
+      "carry_acc": 0.9911111111111112,
+      "jga": 0.9822222222222222,
+      "followup_detected": 0.9822222222222222
+    },
+    "L2=hi:bambaiya": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 1.0,
+      "jga": 1.0,
+      "followup_detected": 1.0
+    },
+    "L2=ta:standard": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 1.0,
+      "carry_acc": 0.9955555555555555,
+      "jga": 0.9955555555555555,
+      "followup_detected": 1.0
+    },
+    "en->ta": {
+      "n": 750.0,
+      "intent_acc": 0.992,
+      "target_acc": 0.988,
+      "carry_acc": 0.9933333333333333,
+      "jga": 0.9786666666666667,
+      "followup_detected": 0.992
+    },
+    "L2=ta:chennai": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.9777777777777777,
+      "carry_acc": 1.0,
+      "jga": 0.9777777777777777,
+      "followup_detected": 1.0
+    },
+    "L2=ta:kongu": {
+      "n": 450.0,
+      "intent_acc": 0.9866666666666667,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.9888888888888889,
+      "jga": 0.9777777777777777,
+      "followup_detected": 0.9866666666666667
+    },
+    "L2=ta:madurai": {
+      "n": 450.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.9977777777777778,
+      "carry_acc": 1.0,
+      "jga": 0.9977777777777778,
+      "followup_detected": 1.0
+    },
+    "L2=ta:nellai": {
+      "n": 450.0,
+      "intent_acc": 0.9711111111111111,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.9822222222222222,
+      "jga": 0.9622222222222222,
+      "followup_detected": 0.9711111111111111
+    },
+    "hi->en": {
+      "n": 150.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.8133333333333334,
+      "carry_acc": 1.0,
+      "jga": 0.8133333333333334,
+      "followup_detected": 1.0
+    },
+    "hi->hi": {
+      "n": 600.0,
+      "intent_acc": 0.995,
+      "target_acc": 1.0,
+      "carry_acc": 0.995,
+      "jga": 0.995,
+      "followup_detected": 0.995
+    },
+    "same-dialect": {
+      "n": 1050.0,
+      "intent_acc": 0.9904761904761905,
+      "target_acc": 0.9952380952380953,
+      "carry_acc": 0.9933333333333333,
+      "jga": 0.9857142857142858,
+      "followup_detected": 0.9904761904761905
+    },
+    "hi->ta": {
+      "n": 750.0,
+      "intent_acc": 0.992,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.992,
+      "jga": 0.984,
+      "followup_detected": 0.992
+    },
+    "ta->en": {
+      "n": 150.0,
+      "intent_acc": 1.0,
+      "target_acc": 0.6733333333333333,
+      "carry_acc": 1.0,
+      "jga": 0.6733333333333333,
+      "followup_detected": 1.0
+    },
+    "ta->hi": {
+      "n": 600.0,
+      "intent_acc": 0.9933333333333333,
+      "target_acc": 1.0,
+      "carry_acc": 0.9966666666666667,
+      "jga": 0.9933333333333333,
+      "followup_detected": 0.9933333333333333
+    },
+    "ta->ta": {
+      "n": 750.0,
+      "intent_acc": 0.9906666666666667,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.9946666666666667,
+      "jga": 0.984,
+      "followup_detected": 0.9906666666666667
+    }
+  },
+  "muril_dialect/no-context": {
+    "ALL": {
+      "n": 4500.0,
+      "intent_acc": 0.28733333333333333,
+      "target_acc": 0.9728888888888889,
+      "carry_acc": 0.31577777777777777,
+      "jga": 0.09222222222222222,
+      "followup_detected": 0.0
+    },
+    "same-standard": {
+      "n": 450.0,
+      "intent_acc": 0.24222222222222223,
+      "target_acc": 0.9422222222222222,
+      "carry_acc": 0.3088888888888889,
+      "jga": 0.07555555555555556,
+      "followup_detected": 0.0
+    },
+    "L2=en:standard": {
+      "n": 450.0,
+      "intent_acc": 0.07555555555555556,
+      "target_acc": 0.7711111111111111,
+      "carry_acc": 0.31777777777777777,
+      "jga": 0.02,
+      "followup_detected": 0.0
+    },
+    "en->en": {
+      "n": 150.0,
+      "intent_acc": 0.06,
+      "target_acc": 0.8266666666666667,
+      "carry_acc": 0.3333333333333333,
+      "jga": 0.02666666666666667,
+      "followup_detected": 0.0
+    },
+    "cross-standard": {
+      "n": 900.0,
+      "intent_acc": 0.24666666666666667,
+      "target_acc": 0.9144444444444444,
+      "carry_acc": 0.32,
+      "jga": 0.07555555555555556,
+      "followup_detected": 0.0
+    },
+    "L2=hi:standard": {
+      "n": 450.0,
+      "intent_acc": 0.2111111111111111,
+      "target_acc": 1.0,
+      "carry_acc": 0.31333333333333335,
+      "jga": 0.04888888888888889,
+      "followup_detected": 0.0
+    },
+    "en->hi": {
+      "n": 600.0,
+      "intent_acc": 0.20833333333333334,
+      "target_acc": 1.0,
+      "carry_acc": 0.32666666666666666,
+      "jga": 0.065,
+      "followup_detected": 0.0
+    },
+    "cross-dialect": {
+      "n": 2100.0,
+      "intent_acc": 0.3076190476190476,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.31476190476190474,
+      "jga": 0.1,
+      "followup_detected": 0.0
+    },
+    "L2=hi:bhojpuri": {
+      "n": 450.0,
+      "intent_acc": 0.4222222222222222,
+      "target_acc": 1.0,
+      "carry_acc": 0.30666666666666664,
+      "jga": 0.12222222222222222,
+      "followup_detected": 0.0
+    },
+    "L2=hi:haryanvi": {
+      "n": 450.0,
+      "intent_acc": 0.15777777777777777,
+      "target_acc": 1.0,
+      "carry_acc": 0.33111111111111113,
+      "jga": 0.051111111111111114,
+      "followup_detected": 0.0
+    },
+    "L2=hi:bambaiya": {
+      "n": 450.0,
+      "intent_acc": 0.011111111111111112,
+      "target_acc": 1.0,
+      "carry_acc": 0.3088888888888889,
+      "jga": 0.0044444444444444444,
+      "followup_detected": 0.0
+    },
+    "L2=ta:standard": {
+      "n": 450.0,
+      "intent_acc": 0.4488888888888889,
+      "target_acc": 1.0,
+      "carry_acc": 0.31777777777777777,
+      "jga": 0.15777777777777777,
+      "followup_detected": 0.0
+    },
+    "en->ta": {
+      "n": 750.0,
+      "intent_acc": 0.352,
+      "target_acc": 0.988,
+      "carry_acc": 0.30933333333333335,
+      "jga": 0.11866666666666667,
+      "followup_detected": 0.0
+    },
+    "L2=ta:chennai": {
+      "n": 450.0,
+      "intent_acc": 0.35333333333333333,
+      "target_acc": 0.9777777777777777,
+      "carry_acc": 0.31333333333333335,
+      "jga": 0.1111111111111111,
+      "followup_detected": 0.0
+    },
+    "L2=ta:kongu": {
+      "n": 450.0,
+      "intent_acc": 0.47333333333333333,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.32222222222222224,
+      "jga": 0.15555555555555556,
+      "followup_detected": 0.0
+    },
+    "L2=ta:madurai": {
+      "n": 450.0,
+      "intent_acc": 0.6644444444444444,
+      "target_acc": 0.9977777777777778,
+      "carry_acc": 0.31777777777777777,
+      "jga": 0.2311111111111111,
+      "followup_detected": 0.0
+    },
+    "L2=ta:nellai": {
+      "n": 450.0,
+      "intent_acc": 0.05555555555555555,
+      "target_acc": 0.9911111111111112,
+      "carry_acc": 0.3088888888888889,
+      "jga": 0.02,
+      "followup_detected": 0.0
+    },
+    "hi->en": {
+      "n": 150.0,
+      "intent_acc": 0.08666666666666667,
+      "target_acc": 0.8133333333333334,
+      "carry_acc": 0.3466666666666667,
+      "jga": 0.02,
+      "followup_detected": 0.0
+    },
+    "hi->hi": {
+      "n": 600.0,
+      "intent_acc": 0.19166666666666668,
+      "target_acc": 1.0,
+      "carry_acc": 0.315,
+      "jga": 0.051666666666666666,
+      "followup_detected": 0.0
+    },
+    "same-dialect": {
+      "n": 1050.0,
+      "intent_acc": 0.30095238095238097,
+      "target_acc": 0.9952380952380953,
+      "carry_acc": 0.3171428571428571,
+      "jga": 0.0980952380952381,
+      "followup_detected": 0.0
+    },
+    "hi->ta": {
+      "n": 750.0,
+      "intent_acc": 0.444,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.328,
+      "jga": 0.15066666666666667,
+      "followup_detected": 0.0
+    },
+    "ta->en": {
+      "n": 150.0,
+      "intent_acc": 0.08,
+      "target_acc": 0.6733333333333333,
+      "carry_acc": 0.2733333333333333,
+      "jga": 0.013333333333333334,
+      "followup_detected": 0.0
+    },
+    "ta->hi": {
+      "n": 600.0,
+      "intent_acc": 0.20166666666666666,
+      "target_acc": 1.0,
+      "carry_acc": 0.30333333333333334,
+      "jga": 0.05333333333333334,
+      "followup_detected": 0.0
+    },
+    "ta->ta": {
+      "n": 750.0,
+      "intent_acc": 0.4013333333333333,
+      "target_acc": 0.9933333333333333,
+      "carry_acc": 0.31066666666666665,
+      "jga": 0.136,
+      "followup_detected": 0.0
+    }
+  }
+}
