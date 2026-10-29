@@ -204,7 +204,8 @@ class WeatherAssistant:
 
         if kind == "trip":
             frame = dict(frame)
-            frame["place"] = dest_mention
+            # No city in this sentence ("how long to go there?") must not keep a failed lookup.
+            frame["place"] = dest_mention if dest_mention else None
             nlu = {**nlu, "intent": WEATHER_INTENT, "intent_conf": max(float(nlu.get("intent_conf") or 0), 0.8)}
 
         state, mode = self.context.update(text, tokens, lang, nlu, frame, dialect)
@@ -213,7 +214,10 @@ class WeatherAssistant:
         if kind == "trip":
             if origin_mention:
                 self.context.origin = origin_mention
-            dest_slot = (state.get("slots") or {}).get("place")
+            carried = (state.get("slots") or {}).get("place")
+            if not ContextManager._resolved(carried):
+                carried = self.context.resolved_place
+            dest_slot = dest_mention or carried
             origin_slot = origin_mention or self.context.origin or self._here(here) or {"canonical": DEFAULT_LOCATION, "surface": DEFAULT_LOCATION}
             if not dest_slot or not (dest_slot.get("canonical") or dest_slot.get("surface")):
                 result = {"status": "error", "error": "need_place", "detail": ""}
@@ -228,13 +232,24 @@ class WeatherAssistant:
                         day = forecast["days"][0]
                         trip = estimate(origin, dest, day, offline=self.weather.offline)
                         result = {"status": "ok", "tool": "travel", "payload": {**forecast, "kind": "travel", "origin": origin, "trip": trip}}
+                    self.context.remember_place(dest)
+                    state = self.context.state.snapshot()
                 except WeatherError as e:
                     result = {"status": "error", "error": e.kind, "detail": e.detail}
+                    if e.kind == "place_not_found":
+                        self.context.drop_failed_place()
+                        state = self.context.state.snapshot()
             shown = {**nlu, "intent": "travel_time", "intent_conf": 0.9}
             trace = self._trace(lang, shares, dialect, dconf, dsrc, shown, frame, mode, state, result, None)
             return self._pack(text, tokens, lang, shares, dialect, dconf, dsrc, shown, frame, mode, state, result, reply_lang, trace)
 
         result = self.router.route(state) if state["intent"] == WEATHER_INTENT else {"status": "unsupported"}
+        if result.get("status") == "ok" and (result.get("payload") or {}).get("place"):
+            self.context.remember_place(result["payload"]["place"])
+            state = self.context.state.snapshot()
+        elif result.get("error") == "place_not_found":
+            self.context.drop_failed_place()
+            state = self.context.state.snapshot()
         note = "Open-Meteo forecast for the canonical place." if result.get("status") == "ok" else result.get("error") or result.get("status")
         trace = self._trace(lang, shares, dialect, dconf, dsrc, nlu, frame, mode, state, result, note)
         return self._pack(text, tokens, lang, shares, dialect, dconf, dsrc, nlu, frame, mode, state, result, reply_lang, trace)

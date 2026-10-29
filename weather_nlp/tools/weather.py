@@ -49,7 +49,10 @@ class WeatherTool:
         if self.offline:
             raise WeatherError("place_not_found", surface)
         toks = tokenize(surface)
-        queries = [" ".join(toks)]
+        joined = " ".join(toks)
+        queries = [joined]
+        if joined and "india" not in joined.lower():
+            queries.append(f"{joined}, India")
         if toks and token_script(toks[-1]) == "ta":
             queries += [" ".join(toks[:-1] + [c]) for c in tamil_stem_candidates(toks[-1])[1:]]
         for q in queries:

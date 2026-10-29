@@ -54,8 +54,14 @@ class ContextManager:
     def reset(self):
         self.state = DialogueState()
         self.last_weather_slots = dict.fromkeys(SLOT_KEYS)
+        self.resolved_place = None
         self.origin = None
         self._origin_undo = []
+
+    @staticmethod
+    def _resolved(place) -> bool:
+        """A place the gazetteer or geocoder actually named. A bare surface is not enough."""
+        return bool(place) and bool(place.get("canonical"))
 
     def undo_last(self, text=None) -> bool:
         """Drop the last turn if it matches `text` (or is the only candidate) and restore slots."""
@@ -69,14 +75,18 @@ class ContextManager:
         if not self.state.turns:
             self.state = DialogueState()
             self.last_weather_slots = dict.fromkeys(SLOT_KEYS)
+            self.resolved_place = None
             return True
         last = self.state.turns[-1]
         self.state.intent = last.intent
         self.state.slots = copy.deepcopy(last.slots)
         self.last_weather_slots = dict.fromkeys(SLOT_KEYS)
+        self.resolved_place = None
         for turn in reversed(self.state.turns):
             if turn.intent == WEATHER_INTENT:
                 self.last_weather_slots = copy.deepcopy(turn.slots)
+                if self._resolved(turn.slots.get("place")):
+                    self.resolved_place = copy.deepcopy(turn.slots["place"])
                 break
         return True
 
@@ -109,11 +119,38 @@ class ContextManager:
             intent = nlu["intent"]
             slots = dict.fromkeys(SLOT_KEYS)
             slots.update(new)
-            if self.carry_over and intent == WEATHER_INTENT and slots["place"] is None:
-                slots["place"] = copy.deepcopy(self.last_weather_slots.get("place"))
+            if self.carry_over and intent == WEATHER_INTENT and slots.get("place") is None:
+                fallback = self.resolved_place if self._resolved(self.resolved_place) else self.last_weather_slots.get("place")
+                if self._resolved(fallback):
+                    slots["place"] = copy.deepcopy(fallback)
 
         self.state.intent, self.state.slots = intent, slots
         if intent == WEATHER_INTENT:
             self.last_weather_slots = copy.deepcopy(slots)
         self.state.turns.append(Turn(text, lang, dialect, nlu["intent"], nlu["intent_conf"], mode, intent, copy.deepcopy(slots)))
         return self.state.snapshot(), mode
+
+    def remember_place(self, place: dict):
+        """Remember a city the weather service actually resolved, so 'there' follows that city."""
+        if not self._resolved(place):
+            return
+        rec = {
+            "canonical": place.get("canonical"),
+            "surface": place.get("surface") or place.get("canonical"),
+            "lat": place.get("lat"),
+            "lon": place.get("lon"),
+            "names": copy.deepcopy(place.get("names")),
+        }
+        self.resolved_place = rec
+        self.state.slots["place"] = copy.deepcopy(rec)
+        self.last_weather_slots["place"] = copy.deepcopy(rec)
+        if self.state.turns:
+            self.state.turns[-1].slots["place"] = copy.deepcopy(rec)
+
+    def drop_failed_place(self):
+        """A place the weather service could not find must not be what the next 'there' means."""
+        keep = copy.deepcopy(self.resolved_place) if self._resolved(self.resolved_place) else None
+        self.state.slots["place"] = copy.deepcopy(keep)
+        self.last_weather_slots["place"] = copy.deepcopy(keep)
+        if self.state.turns:
+            self.state.turns[-1].slots["place"] = copy.deepcopy(keep)

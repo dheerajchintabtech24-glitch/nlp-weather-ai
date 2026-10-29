@@ -19,17 +19,23 @@ _TRIP_CUES = (
     "how long will it take",
     "how long to get",
     "how long to reach",
+    "how long to go",
+    "how long to",
     "how much time",
     "how far",
     "time to reach",
     "time to get",
+    "time to go",
     "get there",
+    "go there",
     "drive time",
     "distance",
     "कितना समय",
     "कितनी देर",
+    "कितना देर",
     "कितना टाइम",
     "कितना दूर",
+    "जाने में",
     "पहुंचने",
     "पहुँचने",
     "दूरी",
@@ -45,7 +51,7 @@ _TRIP_CUES = (
 _FROM_BEFORE = {"from"}
 _FROM_AFTER = {"से", "இருந்து", "से"}
 _TO_BEFORE = {"to", "को", "வரை", "க்கு"}
-_THERE = {"there", "वहाँ", "वहां", "वहा", "उहाँ", "उहां", "அங்க", "அங்கே", "அங்கு"}
+_THERE = {"there", "वहाँ", "वहां", "वहा", "उहाँ", "उहां", "उधर", "उदर", "उधर", "அங்க", "அங்கே", "அங்கு"}
 _SET_ORIGIN = (
     "i am in",
     "i'm in",

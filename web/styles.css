@@ -139,11 +139,35 @@ body {
   border-bottom-right-radius: 0.25rem;
 }
 .bubble.bot {
+  position: relative;
   align-self: flex-start;
   background: var(--panel);
   border: 1px solid var(--line);
   border-bottom-left-radius: 0.25rem;
+  padding-right: 2.6rem;
 }
+.msg-stop {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.5rem;
+  width: 1.85rem;
+  height: 1.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: #1c2420;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 1px 4px rgba(28, 36, 32, 0.18);
+}
+.msg-stop svg {
+  width: 0.72rem;
+  height: 0.72rem;
+  fill: currentColor;
+}
+.msg-stop:hover { background: #8d3a32; }
 .bubble .who {
   font-size: 0.68rem;
   letter-spacing: 0.06em;
@@ -166,6 +190,7 @@ body {
   gap: 0.75rem;
   align-items: flex-start;
   max-width: 100%;
+  padding-right: 2.8rem;
 }
 .spin {
   width: 1.35rem;
@@ -199,7 +224,6 @@ body {
 .process li.wait { opacity: 0.45; }
 .process li b { font-size: 0.78rem; font-weight: 650; }
 .process li span { color: var(--muted); font-size: 0.72rem; line-height: 1.35; }
-#send.stop { background: #8d3a32; }
 
 .listen {
   position: fixed;
@@ -414,7 +438,7 @@ body {
   gap: 0.5rem;
   align-items: center;
 }
-#q, select, #send, #reset, #mic {
+#q, select, #send, #mic {
   font-family: var(--sans);
 }
 .chatbox {
@@ -481,13 +505,7 @@ select {
   border-color: var(--accent);
   box-shadow: 0 0 0 4px rgba(31, 111, 91, 0.18);
 }
-#reset {
-  border-radius: 0.75rem;
-  padding: 0.7rem 0.9rem;
-  cursor: pointer;
-  font-size: 0.88rem;
-}
-#reset, .ghost {
+.ghost {
   background: transparent;
   color: var(--muted);
   border: 1px solid var(--line);
@@ -624,6 +642,5 @@ select {
   .stage { grid-template-columns: 1fr; }
   .chat-col { border-right: 0; border-bottom: 1px solid var(--line); min-height: 48vh; }
   #composer { grid-template-columns: auto 1fr; }
-  #reset { display: none; }
   .mic-hint { display: none; }
 }

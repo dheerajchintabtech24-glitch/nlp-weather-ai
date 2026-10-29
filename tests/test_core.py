@@ -125,6 +125,34 @@ def test_dialect_wording_is_gated_and_keeps_the_language_voice():
     assert held["speech_dialect"] == "standard" and "बारिश" in held["speech_text"]
 
 
+def test_failed_place_does_not_steal_there_from_a_later_city():
+    class _TagsUnknown:
+        """Like the neural tagger: an unknown name is still a place slot, with no gazetteer hit."""
+
+        def predict(self, tokens):
+            out = RuleNLU().predict(tokens)
+            if "gondor" in tokens and not any(s.get("type") == "place_name" for s in out["slots"]):
+                out["slots"] = list(out["slots"]) + [{"type": "place_name", "value": "gondor"}]
+                out["intent"] = "weather_query"
+                out["intent_conf"] = 0.9
+            return out
+
+    bot = WeatherAssistant(nlu=_TagsUnknown(), offline=True)
+    miss = bot.handle("How is the weather in Gondor right now?")
+    assert miss["tool"].get("status") == "error"
+    vizag = bot.handle("What is the weather in Vizag right now?")
+    assert vizag["tool"]["status"] == "ok"
+    assert vizag["state"]["slots"]["place"]["canonical"] == "Visakhapatnam"
+    there = bot.handle("How long to go there?")
+    assert there["nlu"]["intent"] == "travel_time"
+    assert there["tool"]["payload"]["kind"] == "travel"
+    assert there["tool"]["payload"]["place"]["canonical"] == "Visakhapatnam"
+    assert "gondor" not in (there.get("response") or "").lower()
+    ap = WeatherAssistant(nlu=RuleNLU(), offline=True).handle("How is the weather in Andhra Pradesh right now?")
+    assert ap["tool"]["status"] == "ok"
+    assert ap["state"]["slots"]["place"]["canonical"] == "Andhra Pradesh"
+
+
 def test_travel_followup_keeps_place_across_languages():
     bot = WeatherAssistant(nlu=RuleNLU(), offline=True)
     bot.handle("what's the weather in Chennai tomorrow")
@@ -145,6 +173,13 @@ def test_travel_followup_keeps_place_across_languages():
     assert routed["tool"]["payload"]["place"]["canonical"] == "Chennai"
     bot.context.undo_last("how long will it take to get there?")
     assert bot.context.state.slots["place"]["canonical"] == "Chennai"
+    vizag = bot.handle("How long to go to Vizag?")
+    assert vizag["nlu"]["intent"] == "travel_time"
+    assert vizag["tool"]["payload"]["place"]["canonical"] == "Visakhapatnam"
+    assert vizag["tool"]["payload"]["kind"] == "travel"
+    there = bot.handle("उदर जाने में कितना देर लगेगा")
+    assert there["lang"] == "hi" and there["nlu"]["intent"] == "travel_time"
+    assert there["tool"]["payload"]["place"]["canonical"] == "Visakhapatnam"
 
 
 def test_speech_follows_question_language_not_reply_language():

@@ -25,6 +25,7 @@ from weather_nlp.nlg.responder import condition_group
 
 WEB_DIR = ROOT / "web"
 LOCK = threading.Lock()
+ASR_LOCK = threading.Lock()
 CANCELLED = set()
 BOT: WeatherAssistant | None = None
 ASR_MODEL = "openai/whisper-small"
@@ -274,7 +275,10 @@ class Handler(SimpleHTTPRequestHandler):
             body = (WEB_DIR / "index.html").read_bytes()
             return self._send(200, body, "text/html; charset=utf-8")
         if path == "/api/health":
-            return self._send(200, {"ok": BOT is not None, **META})
+            payload = {"ok": BOT is not None, **META}
+            if not payload.get("nlu") and BOT is not None:
+                payload["nlu"] = BOT.nlu.name
+            return self._send(200, payload)
         if path == "/api/demo":
             return self._send(200, {"steps": DEMO})
         if path == "/api/metrics":
@@ -304,7 +308,7 @@ class Handler(SimpleHTTPRequestHandler):
             try:
                 from weather_nlp.asr import transcribe_wav_bytes_meta
 
-                with LOCK:
+                with ASR_LOCK:
                     text, heard = transcribe_wav_bytes_meta(wav, lang=lang, model_name=ASR_MODEL)
             except Exception as e:
                 print(f"transcribe error: {type(e).__name__}: {e}")
@@ -323,9 +327,11 @@ class Handler(SimpleHTTPRequestHandler):
             body = self._read_json()
             text = (body.get("text") or "").strip()
             with LOCK:
-                CANCELLED.add(text)
-                undone = BOT.context.undo_last(text) if text else False
-            return self._send(200, {"ok": True, "undone": undone})
+                if text:
+                    CANCELLED.add(text)
+                undone = BOT.context.undo_last(text or None)
+                snap = BOT.context.state.snapshot()
+            return self._send(200, {"ok": True, "undone": undone, "state": _jsonable(snap)})
         if path == "/api/ask":
             body = self._read_json()
             text = (body.get("text") or "").strip()

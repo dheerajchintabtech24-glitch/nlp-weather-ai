@@ -35,6 +35,7 @@ let speakGen = 0;
 let askGen = 0;
 let askAbort = null;
 let inflightText = "";
+let lastTurn = null;
 let here = null;
 let micArmed = false;
 let micStarting = false;
@@ -154,7 +155,24 @@ const NLP_STEPS = [
   { t: "Reply generation", d: "A template in the question language, then dialect wording and one neural voice." },
 ];
 
+const STOP_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/></svg>`;
+
 let processTimer = null;
+
+function stopControl(title) {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "msg-stop";
+  btn.title = "Stop this answer. The previous city and date stay for the next question.";
+  btn.setAttribute("aria-label", "Stop this answer");
+  btn.innerHTML = STOP_ICON;
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    stopAsk();
+  });
+  return btn;
+}
 
 function showSteps(steps, active, title) {
   $("#empty").hidden = true;
@@ -164,6 +182,7 @@ function showSteps(steps, active, title) {
     card.id = "process";
     card.className = "bubble bot process";
     card.innerHTML = `<div class="spin" aria-hidden="true"></div><div class="process-copy"><b id="process-title"></b><ol id="process-steps"></ol></div>`;
+    card.append(stopControl("Stop this answer"));
     $("#thread").append(card);
   }
   const head = $("#process-title");
@@ -224,6 +243,7 @@ function addBubble(kind, text, meta) {
   const body = document.createElement("div");
   body.textContent = text;
   li.append(who, body);
+  if (kind === "bot") li.append(stopControl("Stop this answer"));
   if (meta) {
     const row = document.createElement("div");
     row.className = "badges";
@@ -241,6 +261,7 @@ function addBubble(kind, text, meta) {
 }
 
 function stopSpeaking() {
+  speakGen += 1;
   if (currentAudio) {
     currentAudio.pause();
     currentAudio = null;
@@ -261,8 +282,8 @@ function whenAudioStarts(data) {
   const lang = (data && data.speech_lang) || (data && data.lang) || "en";
   const text = (data && data.speech_text) || (data && data.response) || "";
   if (!$("#tts").checked || !text) return Promise.resolve();
-  const gen = ++speakGen;
   stopSpeaking();
+  const gen = ++speakGen;
   return fetch("/api/speak", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -275,10 +296,21 @@ function whenAudioStarts(data) {
       return new Promise((resolve, reject) => {
         const audio = new Audio(`data:${body.speech_audio_mime || "audio/mpeg"};base64,${body.speech_audio}`);
         currentAudio = audio;
+        const done = () => {
+          if (currentAudio === audio) currentAudio = null;
+        };
+        audio.addEventListener("ended", done, { once: true });
+        audio.addEventListener("pause", done, { once: true });
         const started = () => resolve();
         audio.addEventListener("playing", started, { once: true });
-        audio.onerror = () => reject(new Error("audio play failed"));
-        audio.play().catch(reject);
+        audio.onerror = () => {
+          done();
+          reject(new Error("audio play failed"));
+        };
+        audio.play().catch((e) => {
+          done();
+          reject(e);
+        });
       });
     })
     .catch(() => {
@@ -303,25 +335,21 @@ function whenAudioStarts(data) {
 function armStop(text) {
   busy = true;
   inflightText = text || "";
-  const send = $("#send");
-  send.disabled = false;
-  send.textContent = "Stop";
-  send.classList.add("stop");
+  $("#send").disabled = true;
   $("#mic").disabled = true;
 }
 
 function clearStop() {
   busy = false;
   inflightText = "";
-  const send = $("#send");
-  send.disabled = false;
-  send.textContent = "Send";
-  send.classList.remove("stop");
+  $("#send").disabled = false;
   $("#mic").disabled = !canListen();
 }
 
 function stopAsk() {
-  const text = inflightText;
+  const turn = lastTurn;
+  const text = inflightText || (turn && turn.text) || "";
+  lastTurn = null;
   askGen += 1;
   if (askAbort) {
     askAbort.abort();
@@ -330,14 +358,21 @@ function stopAsk() {
   stopSpeaking();
   clearProcess();
   clearStop();
-  addBubble("bot", "Stopped. Ask the next question whenever you are ready.");
-  if (text) {
-    fetch("/api/cancel", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text }),
-    }).catch(() => {});
+  if (turn && turn.bot && turn.bot.isConnected) {
+    const stop = turn.bot.querySelector(".msg-stop");
+    if (stop) stop.remove();
   }
+  fetch("/api/cancel", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text }),
+  })
+    .then((r) => r.json())
+    .then((res) => {
+      if (res && res.state) renderSlots(res.state, {});
+    })
+    .catch(() => {});
+  $("#q").focus();
 }
 
 async function ask(text, replyLang, via, heardLang) {
@@ -350,7 +385,8 @@ async function ask(text, replyLang, via, heardLang) {
     badges.push({ text: `heard ${LANG[heardLang] || heardLang}`, cls: `lang-${heardLang}` });
   }
   if (replyLang && replyLang !== "auto") badges.push({ text: `reply ${replyLang}` });
-  addBubble("user", text, badges);
+  const userBubble = addBubble("user", text, badges);
+  lastTurn = { text, user: userBubble, bot: null };
   runStages(NLP_STEPS, "Understanding the question");
   try {
     const res = await fetch("/api/ask", {
@@ -373,12 +409,24 @@ async function ask(text, replyLang, via, heardLang) {
     await whenAudioStarts(data);
     if (gen !== askGen) return;
     clearProcess();
-    addBubble("bot", data.response, [
+    const botBubble = addBubble("bot", data.response, [
       { text: `${LANG[data.lang] || data.lang}:${DIALECT[data.dialect] || data.dialect}`, cls: `lang-${data.lang}` },
       { text: data.mode },
       { text: data.nlu.intent },
     ]);
+    if (lastTurn && lastTurn.user === userBubble) lastTurn.bot = botBubble;
     inspect(data);
+    if (currentAudio) {
+      currentAudio.addEventListener(
+        "ended",
+        () => {
+          const stop = botBubble.querySelector(".msg-stop");
+          if (stop) stop.remove();
+          if (lastTurn && lastTurn.bot === botBubble) lastTurn = null;
+        },
+        { once: true }
+      );
+    }
   } catch (err) {
     if (gen !== askGen || err.name === "AbortError") return;
     clearProcess();
@@ -389,6 +437,7 @@ async function ask(text, replyLang, via, heardLang) {
 }
 
 async function resetConversation() {
+  lastTurn = null;
   await fetch("/api/reset", { method: "POST" });
   $("#thread").innerHTML = "";
   $("#empty").hidden = false;
@@ -700,49 +749,15 @@ async function boot() {
     if (e.target === $("#info-panel")) setInfoOpen(false);
   });
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setInfoOpen(false);
+    if (e.key !== "Escape") return;
+    if (!$("#info-panel").hidden) setInfoOpen(false);
+    else if (busy || lastTurn) stopAsk();
   });
   $("#composer").addEventListener("submit", (e) => {
     e.preventDefault();
-    if (busy) {
-      stopAsk();
-      return;
-    }
     const text = $("#q").value.trim();
     $("#q").value = "";
     ask(text, $("#reply-lang").value);
-  });
-  $("#reset").addEventListener("click", () => {
-    micArmed = false;
-    const rec = recorder;
-    recorder = null;
-    setMicHot(false);
-    if (rec) {
-      if (rec.browser) {
-        try {
-          rec.browser.onend = null;
-          rec.browser.abort ? rec.browser.abort() : rec.browser.stop();
-        } catch (_) {}
-      } else {
-        clearTimeout(rec.timer);
-        try {
-          rec.proc.disconnect();
-        } catch (_) {}
-        rec.stream.getTracks().forEach((t) => t.stop());
-        try {
-          rec.ctx.close();
-        } catch (_) {}
-      }
-    }
-    speakGen += 1;
-    askGen += 1;
-    if (askAbort) {
-      askAbort.abort();
-      askAbort = null;
-    }
-    stopSpeaking();
-    clearStop();
-    resetConversation();
   });
   bindPushToTalk();
   $("#chips").addEventListener("click", (e) => {
@@ -753,22 +768,28 @@ async function boot() {
     ask(item.q, $("#reply-lang").value);
   });
 
-  for (;;) {
+  const showApp = () => {
+    $("#boot").hidden = true;
+    $("#app").hidden = false;
+    $("#q").focus();
+  };
+  let shown = false;
+  for (let i = 0; i < 40; i++) {
     try {
       const h = await fetch("/api/health").then((r) => r.json());
+      applyHealth(h);
       if (h.ok) {
-        applyHealth(h);
+        shown = true;
+        showApp();
         break;
       }
       $("#boot-sub").textContent = "Loading model…";
     } catch (_) {
       $("#boot-sub").textContent = "Waiting for local server…";
     }
-    await sleep(500);
+    await sleep(250);
   }
-  $("#boot").hidden = true;
-  $("#app").hidden = false;
-  $("#q").focus();
+  if (!shown) showApp();
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
